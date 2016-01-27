@@ -1,29 +1,42 @@
-describe('Movie', function() {
-  it("will setup an object for tickets", function() {
-    var testTicket = new Movie("Carol", true, 10, 5, 40);
-    expect(testTicket.movieTitle).to.equal("Carol");
-    expect(testTicket.runType).to.equal(true);
-    expect(testTicket.cost).to.equal(10);
-    expect(testTicket.time).to.equal(5);
-    expect(testTicket.age).to.equal(40);
-  });
-});
+describe('Hangman', function() {
+    // it("will setup an object for tickets", function() {
+    //   var testTicket = new Movie("Carol", true, 10, 5, 40);
+    //   expect(testTicket.movieTitle).to.equal("Carol");
+    //   expect(testTicket.runType).to.equal(true);
+    //   expect(testTicket.cost).to.equal(10);
+    //   expect(testTicket.time).to.equal(5);
+    //   expect(testTicket.age).to.equal(40);
 
-describe('processPrice', function() {
-  it("will give ticket price for carol matinee with senior discount", function() {
-    var testMovie = new Movie("Carol", true, 10, 4, 65);
-    expect(testMovie.processPrice()).to.equal(8);
-  });
-  it("will give ticket price for Room matinee with senior discount", function() {
-    var testMovie = new Movie("Room", true, 10, 4, 65);
-    expect(testMovie.processPrice()).to.equal(8);
-  });
-  it("will give ticket price for The Martian not a matinee with no senior discount", function() {
-    var testMovie = new Movie("The Martian", false, 10, 10, 66);
-    expect(testMovie.processPrice()).to.equal(7);
-  });
-  it("will give ticket price for The Revenants matinee with senior discount", function() {
-    var testMovie = new Movie("The Revenants", false, 10, 4, 66);
-    expect(testMovie.processPrice()).to.equal(6);
-  });
+    it("will produce a random word", function() {
+        expect(randomWord()).to.be.a("string");
+    });
+
+    it("will gather the length of word", function() {
+      expect(getLength("Wednesday")).to.equal(9);
+    });
+    //
+    it("will separate the word into letters" , function() {
+      var testSplit = new Word("Monkey");
+      expect(testSplit.wordInfo()).to.eql(["M", "o", "n", "k", "e", "y"]);
+    });
+    //
+    // it("allow user to choose a letter", function() {
+    //     expect(Hangman("a")).to.equal("a");
+    // });
+    //
+    // it("will check letter against the word", function() {
+    //   var testword = new Word ("Moot");
+    //   expect(Hangman("e")).to.equal(false);
+    // });
+    //
+    // it("the space will remain blank and add a hangman bodypart above if the chosen letter is not within the word", function() {
+    //   var testHang = new Word ("Monday");
+    //   expect(testHang("e")).to.equal("_");
+    // });
+    //
+    // it("will add a hangman bodypart when letter isn't within word", function() {
+    //   var testHang = new Word ("Monday");
+    //   expect(testHang("e")).to.equal(false);
+    //   expect(testHang("e")).to.equal("o");
+    // });
 });

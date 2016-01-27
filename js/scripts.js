@@ -1,74 +1,38 @@
-function Movie (movieTitle, runType, cost, time, age) {
-  this.movieTitle = movieTitle;
-  this.cost = cost;
-  this.time = time;
-  this.age = age;
-  this.runType = runType;
+function Word(word, length) {
+  this.word = word;
+  this.length = length;
+  this.letters = [];
 }
 
-Movie.prototype.movieInfo = function() {
-  console.log(this.cost);
-  return this.movieTitle + " ," + this.cost + " ,"  + this.time + " ," + this.age + " ," + this.runType;
+Word.prototype.wordInfo = function() {
+  this.letters = this.word.split(" ");
+  console.log(this.word);
+  console.log(this.letters);
+  return this.letters;
 }
 
+var randomWord = function() {
+  var words = ["koala", "wallaby", "sloth", "okapi", "ocelot", "capybara", "chinchilla", "crow", "chimpanzee", "toucan", "manatee"];
+  var randomizedWord = words[Math.round( Math.random() * words.length - 1 )];
+  return randomizedWord;
+};
 
-function runProcessor(runType) {
-  var testMovie = new Movie (movieTitle, runType);
-  console.log(testMovie)
-  if ($("#runCheck").prop("checked")) {
-    if (this.movieTitle === "Carol" || "Room") {
-      return this.runStatus === true;
-    }
-    else {
-      return this.runStatus === false;
-    }
-  }
-}
+var getLength = function(userWord) {
+  var wordLength = userWord.length;
+  console.log(wordLength);
+  return wordLength;
+};
 
-Movie.prototype.processPrice = function() {
-  var runStatus = runProcessor(runStatus);
+// var letterTest = function () {
+//
+// }
+//
+// var letterChooser = function() {
+//
+// var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+//
+// }
 
-  if (this.runType === true) {
-      if (this.time < 5){  //matinee
-        if (this.age >= 65) { // senior discount
-            return this.cost = 8;
-        } else {
-            return this.cost = 9;
-        }
-      } else {                // not matinee
-        if (this.age >= 65) {  // senior discount
-          return this.cost = 9;
-        } else {
-          return this.cost = 10;
-        }
-      }
-    } else {
-        if (this.time < 5){  //matinee
-          if (this.age >= 65) { // senior discount
-              return this.cost = 6;
-          } else {
-              return this.cost = 7;
-          }
-        } else {                // not matinee
-          if (this.age >= 65) {  // senior discount
-            return this.cost = 7;
-          } else {
-            return this.cost = 8;
-          }
-        }
-    }
- }
-
-$(document).ready(function() {
-  $("form#new-ticket").submit(function(event) {
-    event.preventDefault();
-    var titleInput = $("input#new-title").val();
-    var timeInput = $("input#new-time").val();
-    var ageInput = $("input#new-age").val();
-    var runInput = $("input#new-run").val();
-    var newTicket = new Movie(titleInput, timeInput, ageInput, runInput);
-    console.log(newTicket);
-  });
-  // $("ul#tickets").append("<li><span class='ticket'>" + newTicket.movieInfo() + "</span></li>");
-
-});
+// for (i=0; i <= blankLength; i++) {
+//
+// }
