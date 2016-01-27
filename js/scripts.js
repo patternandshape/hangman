@@ -1,14 +1,33 @@
-function Word(word, length) {
+function Word(word, wordLength) {
   this.word = word;
-  this.length = length;
+  this.wordLength = wordLength;
   this.letters = [];
 }
 
 Word.prototype.wordInfo = function() {
   this.word = this.word.split("");
-  console.log(this.word);
   return this.word;
+
 }
+
+Word.prototype.wordLengthCalc = function() {
+  this.wordLength = this.word.length;
+  return this.wordLength;
+}
+
+// Word.prototype.letterCheck = function() {
+//   var wordLengthResult = this.word;
+//   console.log(wordLengthResult);
+//   var result;
+//
+//     for (var i=0; i < ths; i++) {
+//     if (this.word[i].indexOf(lettertoFind) != -1) {
+//       return result = true
+//     } else {
+//       return result = false;
+//     }
+//   }
+// }
 
 var randomWord = function() {
   var words = ["koala", "wallaby", "sloth", "okapi", "ocelot", "capybara", "chinchilla", "crow", "chimpanzee", "toucan", "manatee"];
@@ -16,11 +35,11 @@ var randomWord = function() {
   return randomizedWord;
 };
 
-var getLength = function(userWord) {
-  var wordLength = userWord.length;
-  console.log(wordLength);
-  return wordLength;
-};
+// var getLength = function(userWord) {
+//   var wordLength = userWord.length;
+//   console.log(wordLength);
+//   return wordLength;
+// };
 
 // var letterTest = function () {
 //
@@ -28,9 +47,12 @@ var getLength = function(userWord) {
 //
 // var letterChooser = function() {
 //
-// var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
 //
 // }
+
+// var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
 
 // for (i=0; i <= blankLength; i++) {
 //

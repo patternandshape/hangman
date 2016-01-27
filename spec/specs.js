@@ -12,7 +12,8 @@ describe('Hangman', function() {
     });
 
     it("will gather the length of word", function() {
-      expect(getLength("Wednesday")).to.equal(9);
+      var testSplit = new Word("Monkey");
+      expect(testSplit.wordLengthCalc("Monkey")).to.equal(6);
     });
 
     it("will separate the word into letters" , function() {
@@ -24,9 +25,9 @@ describe('Hangman', function() {
     //     expect(Hangman("a")).to.equal("a");
     // });
 
-    it("will check letter against a word", function() {
-      var testword = new Word ("Moot");
-      expect(Hangman("e")).to.equal(false);
+    it("will check letter against a word", function(letterToFind) {
+      var testLetter = new Word ("Moot");
+      expect(testLetter.letterCheck("e")).to.equal(false);
     });
 
     // it("the space will remain blank and add a hangman bodypart above if the chosen letter is not within the word", function() {
