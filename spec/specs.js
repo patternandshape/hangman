@@ -14,21 +14,21 @@ describe('Hangman', function() {
     it("will gather the length of word", function() {
       expect(getLength("Wednesday")).to.equal(9);
     });
-    //
+
     it("will separate the word into letters" , function() {
       var testSplit = new Word("Monkey");
       expect(testSplit.wordInfo()).to.eql(["M", "o", "n", "k", "e", "y"]);
     });
-    //
+
     // it("allow user to choose a letter", function() {
     //     expect(Hangman("a")).to.equal("a");
     // });
-    //
-    // it("will check letter against the word", function() {
-    //   var testword = new Word ("Moot");
-    //   expect(Hangman("e")).to.equal(false);
-    // });
-    //
+
+    it("will check letter against a word", function() {
+      var testword = new Word ("Moot");
+      expect(Hangman("e")).to.equal(false);
+    });
+
     // it("the space will remain blank and add a hangman bodypart above if the chosen letter is not within the word", function() {
     //   var testHang = new Word ("Monday");
     //   expect(testHang("e")).to.equal("_");

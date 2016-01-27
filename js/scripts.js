@@ -5,10 +5,9 @@ function Word(word, length) {
 }
 
 Word.prototype.wordInfo = function() {
-  this.letters = this.word.split(" ");
+  this.word = this.word.split("");
   console.log(this.word);
-  console.log(this.letters);
-  return this.letters;
+  return this.word;
 }
 
 var randomWord = function() {
