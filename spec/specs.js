@@ -21,18 +21,29 @@ describe('Word', function() {
       expect(testSplit.wordInfo()).to.eql(["M", "o", "n", "k", "e", "y"]);
     });
 
-    // it("allow user to choose a letter", function() {
-    //     expect(Hangman("a")).to.equal("a");
-    // });
-
-    it("will check letter against a word", function() {
-      var testLetter = new Word ("Moot", 4);
+    it("will check unmatching letter against a word", function() {
+      var testLetter = new Word ("Cat", 3);
       expect(testLetter.letterCheck("e")).to.equal(false);
     });
 
-    // it("the space will remain blank and add a hangman bodypart above if the chosen letter is not within the word", function() {
+    it("will check a matching letter against a word", function() {
+      var testLetter = new Word ("Moot", 4);
+      expect(testLetter.letterCheck("o")).to.equal(true);
+    });
+
+    it("will check a unmatching letter against a word", function() {
+      var testLetter = new Word ("Shampoo", 7);
+      expect(testLetter.letterCheck("e")).to.equal(false);
+    });
+
+    // it("will determine the user has lost if 6 unmatching letters have been input", function() {
     //   var testHang = new Word ("Monday");
-    //   expect(testHang("e")).to.equal("_");
+    //   expect(testHang("a")).to.equal(true);
+    // });
+
+    // it("will replace a slot with a character when a matching letter is input", function() {
+    //   var testHang = new Word ("Monday");
+    //   expect(testHang("a")).to.equal("_");
     // });
     //
     // it("will add a hangman bodypart when letter isn't within word", function() {
