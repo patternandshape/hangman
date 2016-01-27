@@ -1,4 +1,4 @@
-describe('Hangman', function() {
+describe('Word', function() {
     // it("will setup an object for tickets", function() {
     //   var testTicket = new Movie("Carol", true, 10, 5, 40);
     //   expect(testTicket.movieTitle).to.equal("Carol");
@@ -25,8 +25,8 @@ describe('Hangman', function() {
     //     expect(Hangman("a")).to.equal("a");
     // });
 
-    it("will check letter against a word", function(letterToFind) {
-      var testLetter = new Word ("Moot");
+    it("will check letter against a word", function() {
+      var testLetter = new Word ("Moot", 4);
       expect(testLetter.letterCheck("e")).to.equal(false);
     });
 
