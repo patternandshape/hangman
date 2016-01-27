@@ -1,12 +1,4 @@
 describe('Word', function() {
-    // it("will setup an object for tickets", function() {
-    //   var testTicket = new Movie("Carol", true, 10, 5, 40);
-    //   expect(testTicket.movieTitle).to.equal("Carol");
-    //   expect(testTicket.runType).to.equal(true);
-    //   expect(testTicket.cost).to.equal(10);
-    //   expect(testTicket.time).to.equal(5);
-    //   expect(testTicket.age).to.equal(40);
-
     it("will produce a random word", function() {
         expect(randomWord()).to.be.a("string");
     });
@@ -31,14 +23,9 @@ describe('Word', function() {
       expect(testLetter.letterCheck("o")).to.equal(true);
     });
 
-    it("will check a unmatching letter against a word", function() {
-      var testLetter = new Word ("Shampoo", 7);
-      expect(testLetter.letterCheck("e")).to.equal(false);
-    });
-
-    // it("will determine the user has lost if 6 unmatching letters have been input", function() {
-    //   var testHang = new Word ("Monday");
-    //   expect(testHang("a")).to.equal(true);
+    // it("will check a unmatching letter against a word", function() {
+    //   var testLetter = new Word ("Shampoo", 7);
+    //   expect(testLetter.letterCheck("e")).to.equal(false);
     // });
 
     // it("will replace a slot with a character when a matching letter is input", function() {

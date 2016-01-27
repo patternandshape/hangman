@@ -1,7 +1,8 @@
-function Word(word, wordLength) {
+function Word(word, wordLength, count) {
   this.word = word;
   this.wordLength = wordLength;
   this.letters = [];
+  this.count = count;
 }
 
 Word.prototype.wordInfo = function() {
@@ -17,6 +18,7 @@ Word.prototype.wordLengthCalc = function() {
 Word.prototype.letterCheck = function(testLetter) {
   // var lengthOfWord = wordLengthCalc(lengthOfWord);
     var result;
+    var count = 0;
     var testword = this.word.split("");
 
     for (var i = 0; i < this.wordLength; i++) {
@@ -24,11 +26,19 @@ Word.prototype.letterCheck = function(testLetter) {
         result = true;
       } else {
         result = false;
+        this.count++;
       }
   };
-      console.log(result);
   return result;
 }
+  Word.prototype.failCount = function (){
+            console.log(count);
+    if (this.count === 6) {
+      var failOutput = ("You lose, try again!");
+    } else {
+    }
+    return failOutput;
+  }
 
 // function() {
 //   "Cat"
