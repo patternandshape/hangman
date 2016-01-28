@@ -17,7 +17,8 @@ Word.prototype.wordLengthCalc = function() {
 
 
 Word.prototype.letterCheck = function(testLetter) {
-  // var lengthOfWord = wordLengthCalc(lengthOfWord);
+  var lengthOfWord = this.wordLengthCalc();
+
     var result;
     var count = 0;
     var testword = this.word.split("");
@@ -59,25 +60,10 @@ var randomWord = function() {
   return randomizedWord;
 };
 
-// var getLength = function(userWord) {
-//   var wordLength = userWord.length;
-//   console.log(wordLength);
-//   return wordLength;
-// };
+$(document).ready(function() {
+  $("form#hangmanStart").submit(function() {
+    event.preventDefault();
 
-// var letterTest = function () {
-//
-// }
-//
-// var letterChooser = function() {
-//
-
-//
-// }
-
-// var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-
-// for (i=0; i <= blankLength; i++) {
-//
-// }
+    
+  });
+});
