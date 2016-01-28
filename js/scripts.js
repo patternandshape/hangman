@@ -45,9 +45,7 @@ Word.prototype.letterCheck = function(testLetter) {
 Word.prototype.createBlanks = function(testWord) {
     var newPhrase = '';
     for (var i = 0; i < this.wordLength; i++) {
-      console.log(newPhrase);
         newPhrase = newPhrase + "_ ";
-
     }
       return newPhrase;
     };
@@ -59,17 +57,26 @@ Word.prototype.createBlanks = function(testWord) {
 };
 
 $(document).ready(function() {
-  // $("form#hangmanStart").submit(function() {
-  //   event.preventDefault();
     var newRandom = randomWord();
     var newWord = new Word(newRandom, newLength);
     var newLength = newWord.wordLengthCalc();
-    console.log(newLength);
-
     var newBlanks = newWord.createBlanks(newLength);
-    console.log(newWord);
-    console.log(newBlanks);
 
     $(".blankSpaces").append(newBlanks);
 
+  $("form#letterSubmission").submit(function(event) {
+        event.preventDefault();
+        var letterToTest = $("#letter-entry").val();
+        console.log(letterToTest);
+        var letterMatch = newWord.letterCheck(letterToTest);
+        console.log(letterMatch);
+
+    // $(".letterKeyboard").on("click", function(event) {
+    //   console.log("You clicked on: ", event.target);
+    //   var name = $(event.target).closest(".btn");
+    //   console.log("You clicked on:", name);
+    //   var letterMatch = newWord.letterCheck(name);
+    //   console.log(letterMatch);
+    // });
+  });
 });
