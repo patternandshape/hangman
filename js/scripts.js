@@ -8,7 +8,7 @@ function Word(word, wordLength, letters, count) {   //constructor
 
 Word.prototype.hangman = function() {    //generating a random word
   var randomizedWord = this.randomWords[Math.round( Math.random() * this.randomWords.length - 1 )];
-  return randomizedWord;
+  return this.word = randomizedWord;
 }
 
 Word.prototype.wordInfo = function() {    //splitting word into array
@@ -74,23 +74,18 @@ Word.prototype.replaceBlanks = function(testLetter) {   //replacing letters on m
 
 $(document).ready(function() {
 
-    var newRandom;
-    var newWord;
-    var newLength;
-    var newBlanks;
-
-    $("#start").click(function() {
-
-    newRandom = randomWord();
-    newLength = newWord.wordLengthCalc();
-    newWord = new Word(newRandom, newLength);
-    newBlanks = newWord.createBlanks(newLength);
+  $("#start").click(function() {
+    var newWord = new Word();
+    var newRandom = newWord.hangman();
+    var newLength = newWord.wordLengthCalc();
+    var newBlanks = newWord.createBlanks();
     $(".blankSpaces").append(newBlanks);
   });
 
     $("form#letterSubmission").submit(function(event) {
         event.preventDefault();
         var letterToTest = $("#letter-entry").val();
+            var newWord = new Word();
         var newMatch = newWord.replaceBlanks(letterToTest, newLength);
         console.log(newMatch);
         console.log(newLength);
