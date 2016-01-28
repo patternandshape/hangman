@@ -1,9 +1,10 @@
-function Word(word, wordLength, letters, count) {   //constructor
+function Word(word, wordLength, letters, count, blankList) {   //constructor
   this.word = word;
   this.wordLength = wordLength;
   this.letters = letters;
   this.count = count;
   this.randomWords = ["koala", "wallaby", "sloth", "okapi", "ocelot", "capybara", "chinchilla", "crow", "chimpanzee", "toucan", "manatee"];
+  this.blankList = blankList;
 }
 
 Word.prototype.hangman = function() {    //generating a random word
@@ -12,19 +13,19 @@ Word.prototype.hangman = function() {    //generating a random word
   return this.word;
 }
 
-Word.prototype.wordInfo = function() {    //splitting word into array
-  this.word = this.word.split("");
-  return this.word;
-}
+// Word.prototype.wordInfo = function() {    //splitting word into array
+//   this.word = this.word.split("");
+//   return this.word;
+// }
 
 Word.prototype.wordLengthCalc = function() {     //calculate word length
-  this.wordLength = (this.word).length;
-  console.log(this.word);
+  var lengthTest = (this.word).length;
+  this.wordLength = lengthTest;
   return this.wordLength;
 }
 
 Word.prototype.letterCheck = function(testLetter) {   //splitting word, checking for fails
-  var lengthOfWord = this.wordLengthCalc();
+  // var lengthOfWord = this.wordLengthCalc();
 
     var result;
     var count = 0;
@@ -50,17 +51,19 @@ Word.prototype.letterCheck = function(testLetter) {   //splitting word, checking
   // }
 
 Word.prototype.createBlanks = function() {   //creating initial word blanks on page load
-    var newPhrase = '';
+    this.blankList = '';
     for (var i = 0; i < this.wordLength; i++) {
-        newPhrase = newPhrase + "_ ";
+        this.blankList = this.blankList + "_ ";
     }
-      return newPhrase;
+      return this.blankList;
     };
 
 
 Word.prototype.replaceBlanks = function(testLetter) {   //replacing letters on match (or not)
-  var newPhrase = this.createBlanks();
+  var newPhrase = this.blankList;
+  console.log(this.blankList);
   var newPhraseArr = newPhrase.split(" ");
+  console.log(newPhraseArr);
   var wordSplit = this.word.split("");
 
 
@@ -69,27 +72,29 @@ Word.prototype.replaceBlanks = function(testLetter) {   //replacing letters on m
         newPhraseArr[i] = testLetter;
       }
   }
-    var newMatchPhrase = newPhraseArr.join(" ");
-    return newMatchPhrase;
+    this.blankList = newPhraseArr.join(" ");
+    return this.blankList;
 }
 
 $(document).ready(function() {
 
-  $("#start").click(function() {
+  $(".start-btn").click(function() {
     var newWord = new Word();
+    console.log(newWord);
     var newRandom = newWord.hangman();
     var newLength = newWord.wordLengthCalc();
     var newBlanks = newWord.createBlanks();
     $(".blankSpaces").append(newBlanks);
 
 
-    var letterToTest = $("#letter-entry").val();
-
-    var newMatch = newWord.replaceBlanks(letterToTest, newLength);
-    $("p.blankSpaces").append(newMatch);
-
-    var letterMatch = newWord.letterCheck(letterToTest);
-    console.log(letterMatch);
+    // // var letterToTest = $("#letter-entry").val();
+    // //
+    // // var newMatch = newWord.replaceBlanks(letterToTest);
+    // // $("p.blankSpaces").append(newMatch);
+    //
+    // var letterMatch = newWord.letterCheck(letterToTest);
+    // console.log(letterMatch);
+    // console.log(newWord);
 
       $(".letterkey").click(function(event) {
         console.log("You clicked on: ", event.target);
@@ -97,7 +102,7 @@ $(document).ready(function() {
         console.log(this.id);
 
         var letterMatch = newWord.replaceBlanks(name);
-        $(".blankSpaces").append(letterMatch);
+        $(".blankSpaces").empty().append(letterMatch);
       });
   });
 });
