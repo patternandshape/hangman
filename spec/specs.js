@@ -28,6 +28,11 @@ describe('Word', function() {
       expect(testBlanks.createBlanks("Dog")).to.equal("_ _ _ ");
     });
 
+    it("will replace underscores for each letter matching", function() {
+      var testMatch = new Word("chimpanzee", 10);
+      expect(testMatch.replaceBlanks("e")).to.equal("_ _ _ _ _ _ _ _ e e");
+    });
+
     // it("will check a unmatching letter against a word", function() {
     //   var testLetter = new Word ("Shampoo", 7);
     //   expect(testLetter.letterCheck("e")).to.equal(false);
