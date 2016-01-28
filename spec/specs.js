@@ -30,7 +30,12 @@ describe('Word', function() {
 
     it("will replace underscores for each letter matching", function() {
       var testMatch = new Word("chimpanzee", 10);
-      expect(testMatch.replaceBlanks("e")).to.equal("_ _ _ _ _ _ _ _ e e");
+      expect(testMatch.replaceBlanks("e")).to.equal("_ _ _ _ _ _ _ _ e e ");
+    });
+
+    it("will replace underscores for each letter matching", function() {
+      var testMatch = new Word("cat", 3);
+      expect(testMatch.replaceBlanks("e")).to.equal("_ _ _ ");
     });
 
     // it("will check a unmatching letter against a word", function() {

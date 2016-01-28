@@ -1,22 +1,22 @@
-function Word(word, wordLength, letters, count) {
+function Word(word, wordLength, letters, count) {   //constructor
   this.word = word;
   this.wordLength = wordLength;
   this.letters = letters;
   this.count = count;
 }
 
-Word.prototype.wordInfo = function() {
+Word.prototype.wordInfo = function() {    //splitting word into array
   this.word = this.word.split("");
   return this.word;
 }
 
-Word.prototype.wordLengthCalc = function() {
+Word.prototype.wordLengthCalc = function() {     //calculate word length
   this.wordLength = this.word.length;
   return this.wordLength;
 }
 
 
-Word.prototype.letterCheck = function(testLetter) {
+Word.prototype.letterCheck = function(testLetter) {   //splitting word, checking for fails
   var lengthOfWord = this.wordLengthCalc();
 
     var result;
@@ -42,7 +42,7 @@ Word.prototype.letterCheck = function(testLetter) {
   //   return failOutput;
   // }
 
-Word.prototype.createBlanks = function(testWord) {
+Word.prototype.createBlanks = function(testWord) {   //creating initial word blanks on page load
     var newPhrase = '';
     for (var i = 0; i < this.wordLength; i++) {
         newPhrase = newPhrase + "_ ";
@@ -51,7 +51,7 @@ Word.prototype.createBlanks = function(testWord) {
     };
 
 
-Word.prototype.replaceBlanks = function(testLetter) {
+Word.prototype.replaceBlanks = function(testLetter) {   //replacing letters on match (or not)
   var newPhrase = this.createBlanks(this.word);
   var newPhraseArr = newPhrase.split(" ");
   var wordSplit = this.word.split("");
@@ -64,12 +64,10 @@ Word.prototype.replaceBlanks = function(testLetter) {
       }
   }
     var newMatchPhrase = newPhraseArr.join(" ");
-    newMatchPhrase.trim();
-    console.log(newMatchPhrase);
     return newMatchPhrase;
 }
 
-  var randomWord = function() {
+  var randomWord = function() {                       //randomizer
   var words = ["koala", "wallaby", "sloth", "okapi", "ocelot", "capybara", "chinchilla", "crow", "chimpanzee", "toucan", "manatee"];
   var randomizedWord = words[Math.round( Math.random() * words.length - 1 )];
   return randomizedWord;
@@ -80,22 +78,33 @@ $(document).ready(function() {
     var newWord = new Word(newRandom, newLength);
     var newLength = newWord.wordLengthCalc();
     var newBlanks = newWord.createBlanks(newLength);
-
     $(".blankSpaces").append(newBlanks);
 
   $("form#letterSubmission").submit(function(event) {
         event.preventDefault();
         var letterToTest = $("#letter-entry").val();
-        console.log(letterToTest);
+
+        var newMatch = newWord.replaceBlanks(letterToTest, newLength);
+        console.log(newMatch);
+        console.log(newLength);
+        $("p.blankSpaces").append(newMatch);
+
+
+
         var letterMatch = newWord.letterCheck(letterToTest);
         console.log(letterMatch);
 
-    // $(".letterKeyboard").on("click", function(event) {
-    //   console.log("You clicked on: ", event.target);
-    //   var name = $(event.target).closest(".btn");
-    //   console.log("You clicked on:", name);
-    //   var letterMatch = newWord.letterCheck(name);
-    //   console.log(letterMatch);
-    // });
   });
+
+
+
+
+
+      // $(".letterKeyboard").on("click", function(event) {
+      //   console.log("You clicked on: ", event.target);
+      //   var name = $(event.target).closest(".btn");
+      //   console.log("You clicked on:", name);
+      //   var letterMatch = newWord.letterCheck(name);
+      //   console.log(letterMatch);
+      // });
 });
