@@ -26,7 +26,7 @@ describe('Word', function() {
 
     it("will create underscores for each letter in a word", function() {
       var testBlanks = new Word ("Dog", 3);
-      expect(testBlanks.createBlanks("Dog")).to.equal("_ _ _ ");
+      expect(testBlanks.createBlanks()).to.equal("_ _ _ ");
     });
 
     it("will replace underscores for each letter matching", function() {
