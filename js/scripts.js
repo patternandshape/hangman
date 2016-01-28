@@ -42,8 +42,6 @@ Word.prototype.letterCheck = function(testLetter) {
   //   return failOutput;
   // }
 
-
-
 Word.prototype.createBlanks = function(testWord) {
     var newPhrase = '';
     for (var i = 0; i < this.wordLength; i++) {
@@ -54,16 +52,24 @@ Word.prototype.createBlanks = function(testWord) {
       return newPhrase;
     };
 
-var randomWord = function() {
+  var randomWord = function() {
   var words = ["koala", "wallaby", "sloth", "okapi", "ocelot", "capybara", "chinchilla", "crow", "chimpanzee", "toucan", "manatee"];
   var randomizedWord = words[Math.round( Math.random() * words.length - 1 )];
   return randomizedWord;
 };
 
 $(document).ready(function() {
-  $("form#hangmanStart").submit(function() {
-    event.preventDefault();
+  // $("form#hangmanStart").submit(function() {
+  //   event.preventDefault();
+    var newRandom = randomWord();
+    var newWord = new Word(newRandom, newLength);
+    var newLength = newWord.wordLengthCalc();
+    console.log(newLength);
 
-    
-  });
+    var newBlanks = newWord.createBlanks(newLength);
+    console.log(newWord);
+    console.log(newBlanks);
+
+    $(".blankSpaces").append(newBlanks);
+
 });
