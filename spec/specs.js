@@ -1,6 +1,7 @@
 describe('Word', function() {
     it("will produce a random word", function() {
-        expect(randomWord()).to.be.a("string");
+      var testRandom = new Word("Monkey");
+        expect(testRandom.hangman()).to.be.a("string");
     });
 
     it("will gather the length of word", function() {

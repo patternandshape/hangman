@@ -18,6 +18,17 @@
     font-size: 128px;
 }
 
+.rules {
+  margin: 80px;
+  color: #e6cc00;
+  font-size: 14px;
+}
+
+.rules p {
+  font-family: monospace;
+  color: #fff;
+}
+
 .manWhoHangs {
   margin: 80px;
   box-shadow: 10px 10px #000;
@@ -35,9 +46,15 @@
   box-shadow: 10px 10px #000;
   text-align: center;
   font-family: monospace;
+  margin-top: 400px;
 }
 
-.letterKeyboard {
+#letterSubmission {
+  margin: 80px;
+  margin-top: 10px;
+}
+
+/*.letterKeyboard {
   background-color: #fff9cc;
   padding: 40px;
   margin: 80px;
@@ -45,6 +62,10 @@
   box-shadow: 10px 10px #000;
   text-align: center;
   font-family: monospace;
+}*/
+
+.btn {
+  margin-top: 10px;
 }
 
 body {
