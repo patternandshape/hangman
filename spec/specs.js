@@ -23,6 +23,11 @@ describe('Word', function() {
       expect(testLetter.letterCheck("o")).to.equal(true);
     });
 
+    it("will create underscores for each letter in a word", function() {
+      var testBlanks = new Word ("Dog", 3);
+      expect(testBlanks.createBlanks("Dog")).to.equal("_ _ _ ");
+    });
+
     // it("will check a unmatching letter against a word", function() {
     //   var testLetter = new Word ("Shampoo", 7);
     //   expect(testLetter.letterCheck("e")).to.equal(false);

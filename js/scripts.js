@@ -15,6 +15,7 @@ Word.prototype.wordLengthCalc = function() {
   return this.wordLength;
 }
 
+
 Word.prototype.letterCheck = function(testLetter) {
   // var lengthOfWord = wordLengthCalc(lengthOfWord);
     var result;
@@ -31,26 +32,26 @@ Word.prototype.letterCheck = function(testLetter) {
   };
   return result;
 }
-  Word.prototype.failCount = function (){
-            console.log(count);
-    if (this.count === 6) {
-      var failOutput = ("You lose, try again!");
-    } else {
+  // Word.prototype.failCount = function (){
+  //           console.log(count);
+  //   if (this.count === 6) {
+  //     var failOutput = ("You lose, try again!");
+  //   } else {
+  //   }
+  //   return failOutput;
+  // }
+
+
+
+Word.prototype.createBlanks = function(testWord) {
+    var newPhrase = '';
+    for (var i = 0; i < this.wordLength; i++) {
+      console.log(newPhrase);
+        newPhrase = newPhrase + "_ ";
+
     }
-    return failOutput;
-  }
-
-// function() {
-//   "Cat"
-// var guesses = [a, o, r, u, p, g, f]
-//
-// if (false = *6)
-// you lost
-// }
-// else {
-//   you good
-// }
-
+      return newPhrase;
+    };
 
 var randomWord = function() {
   var words = ["koala", "wallaby", "sloth", "okapi", "ocelot", "capybara", "chinchilla", "crow", "chimpanzee", "toucan", "manatee"];
