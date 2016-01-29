@@ -1,5 +1,5 @@
 .jumbotron {
-  background-color: #e6cc00;
+  background-color: #ffdb4d;
   color: #208CAC;
   padding: 20px;
 }
@@ -20,7 +20,7 @@
 
 .rules {
   margin: 80px;
-  color: #e6cc00;
+  color: #ffdb4d;
   font-size: 14px;
 }
 
@@ -63,6 +63,7 @@
   box-shadow: 10px 10px #000;
   text-align: center;
   font-family: monospace;
+  position: absolute;
 }
 
 .btn {

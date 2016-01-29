@@ -1,10 +1,13 @@
-function Word(word, wordLength, letters, count, blankList) {   //constructor
+function Word(word, wordLength, letters, count, blankList, result) {   //constructor
   this.word = word;
   this.wordLength = wordLength;
   this.letters = letters;
   this.count = count;
   this.randomWords = ["koala", "wallaby", "sloth", "okapi", "ocelot", "capybara", "chinchilla", "crow", "chimpanzee", "toucan", "manatee"];
   this.blankList = blankList;
+  this.bodyParts = ["o", "/", "|", "'\''", "/", "''\'"];
+  this.result = result;
+  this.counter = 0;
 }
 
 Word.prototype.hangman = function() {    //generating a random word
@@ -27,20 +30,21 @@ Word.prototype.wordLengthCalc = function() {     //calculate word length
 Word.prototype.letterCheck = function(testLetter) {   //splitting word, checking for fails
   // var lengthOfWord = this.wordLengthCalc();
 
-    var result;
+
     var count = 0;
     var testword = this.word.split("");
 
     for (var i = 0; i < this.wordLength; i++) {
       if (testword.indexOf(testLetter) !== -1) {
-        result = true;
+
       } else {
-        result = false;
+
         this.count++;
       }
   };
   return result;
 }
+
   // Word.prototype.failCount = function (){
   //           console.log(count);
   //   if (this.count === 6) {
@@ -66,15 +70,34 @@ Word.prototype.replaceBlanks = function(testLetter) {   //replacing letters on m
   console.log(newPhraseArr);
   var wordSplit = this.word.split("");
 
-
   for (var i = 0; i < this.wordLength; i++) {
       if (testLetter === wordSplit[i]) {
         newPhraseArr[i] = testLetter;
+        this.result = true;
+      }
+      else {
+        this.result = false;
+
       }
   }
     this.blankList = newPhraseArr.join(" ");
+
     return this.blankList;
 }
+
+Word.prototype.bodyPartAdd = function() {    //generating a random word
+  console.log(this.result);
+
+  if (this.result === false) {
+    var display = this.bodyParts[this.counter];
+            this.counter++;
+
+  }
+
+  return display;
+}
+
+
 
 $(document).ready(function() {
 
@@ -103,6 +126,14 @@ $(document).ready(function() {
 
         var letterMatch = newWord.replaceBlanks(name);
         $(".blankSpaces").empty().append(letterMatch);
+
+        var bodyPart = newWord.bodyPartAdd();
+        console.log(bodyPart);
+        $(".manWhoHangs").append(bodyPart);
       });
+
+
+
+
   });
 });
