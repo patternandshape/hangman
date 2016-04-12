@@ -1,32 +1,26 @@
-# Hangman
+# Hang Man
 
-#### A program that let's a user play Hangman with pre-determined words that are randomly selected by the computer.  
-#### January 28, 2016
+January 28, 2016
 
-#### By Torrence Stratton & Molly Curtin
+##### By Molly Curtin &amp; Torrence Stratton
 
-## Description
+### Description
 
 A web application where a user chooses letters until they've either filled the empty spaces or loses by making an entire Hangman.
 
-
-## Technologies Used
+##### Technologies Used
 
 * HTML
 * CSS
 * JavaScript
-* JQuery
-* Atom
-* Terminal
-* Chai
+* jQuery
 * Mocha
-* Bootstrap
+* Chai
 * BDD
+* Git
 
-###Hangman can be viewed at https://github.com/mostfamiliar/hangman
+##### License
 
-### License
+*This software is licensed under the MIT license.*
 
-*Licensed under GPL.*
-
-&copy;2016 **Torrence Stratton & Molly Curtin**
+&copy;2016 **Molly Curtin &amp; Torrence Stratton**
